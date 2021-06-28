@@ -24,13 +24,19 @@ JSON files record tracking result for each frame. Data in each frame includes:
 - `label_IDs`: IDs of marks.
 - `scores`: Tracking scores in range [0, 1].
 
+### CSV File
+The Nth line in a CSV file corresponds to the Nth frame of the corresponding video. Each line is consist of the 6 marks in format:
+`label_id, label, score, left, top, right, bottom`
+The score and box will be empty if there is no beetle with the certain mark be detected.
+
 ### Video
 Annotated videos with bounding boxes, labels, and tracking scores.
 
 ## Setting
 Parameters can be edited in `config.yml`.
-- `output_jsons`: To output JSON files.
-- `output_videos`: To output videos.
+- `output_json`: To output JSON files.
+- `output_csv`: To output CSV files.
+- `output_video`: To output videos.
 - `center_crop_4x3`: Center crop videos with 4:3 aspect ratio while tracking.
 - `video_dir`: Directory path of the target videos.
-- `output_dir`: Output directory path.
+- `output_dir`: Result directory path.
