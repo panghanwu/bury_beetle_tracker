@@ -7,6 +7,7 @@ import cv2
 import os
 import yaml
 import json
+import csv
 
 from utils import painter
 import app
@@ -56,6 +57,7 @@ for video_path in video_list:
     video_name = os.path.basename(video_path)
     total_f = int(video.get(7))
     tracker.reset()
+    frame_dict = dict()
     
     # get w, h
     if config['center_crop_4x3']:
@@ -63,11 +65,7 @@ for video_path in video_list:
     else:
         w, h = int(video.get(3)), int(video.get(4))
 
-    if config['output_jsons']:
-        frame_dict = dict()
-        json_name = output_dir + f'{os.path.splitext(video_name)[0]}.json'
-
-    if config['output_videos']:
+    if config['output_video']:
         output_name = output_dir + f'track_{video_name}'
 
         # set video writer
@@ -102,7 +100,7 @@ for video_path in video_list:
                 scores = [round(t[1], 2) for t in tracks]
                 boxes = [list(map(int, t[2])) for t in tracks]
 
-                if config['output_jsons']:
+                if config['output_json']:
                     frame_dict[str(f_no)] = {
                         'boxes': boxes,
                         'labels': labels,
@@ -110,7 +108,7 @@ for video_path in video_list:
                         'scores': scores
                     }
 
-                if config['output_videos']:
+                if config['output_video']:
                     # set colors
                     colors = [color_list[t[0]] for t in tracks]
                     tags = [f'{t} {s:.2f}' for t, s in zip(labels, scores)]
@@ -131,12 +129,37 @@ for video_path in video_list:
             else:
                 break
 
-        if config['output_videos']:
+        if config['output_video']:
             video.release()
             output.release()
 
-        if config['output_jsons']:
+        if config['output_json']:
+            json_name = output_dir + f'{os.path.splitext(video_name)[0]}.json'
             with open(json_name, 'w') as jf:
                 json.dump(frame_dict, jf, indent=4)
+        
+        if config['output_csv']:
+            # label_ids, labels, score, boxes
+            csv_data = list()
+
+            for data in frame_dict.values():
+
+                # create template
+                csv_line = [None]*6*7
+                for i in range(6):
+                    csv_line[7*i] = i
+                    csv_line[7*i+1] = label_dict[i]
+
+                for i in range(len(data['labels'])):
+                    ndx = csv_line.index(data['labels'][i])
+                    csv_line[ndx+1] = data['scores'][i]
+                    csv_line[ndx+2:ndx+6] = data['boxes'][i]
+
+                csv_data.append(csv_line)
+
+            csv_name = output_dir + f'{os.path.splitext(video_name)[0]}.csv'
+            with open(csv_name, 'w') as cf:
+                write = csv.writer(cf)
+                write.writerows(csv_data)
 
 print('Completed!')

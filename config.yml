@@ -1,10 +1,11 @@
 # output setting
-output_jsons: True
-output_videos: True
+output_json: True
+output_csv: True
+output_video: True
 center_crop_4x3: True
 
 # path
-video_dir: "samples/"
+video_dir: "../samples/test/"
 output_dir: "results/"
 text_font_path: "data/simhei.ttf"
 
