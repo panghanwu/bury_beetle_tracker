@@ -18,7 +18,7 @@ It can identify 6 marks including `H, O, X, nn, ss, xx`.
 
 ## Output
 ### JSON File
-JSON files record tracking result for each frame. Data in each frame inculds:
+JSON files record tracking result for each frame. Data in each frame includes:
 - `boxes`: Bounding box coordinate in format `[left, top, right, bottom]`.
 - `labels`: Marks on backs of the beetles.
 - `label_IDs`: IDs of marks.
