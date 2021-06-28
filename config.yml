@@ -5,7 +5,7 @@ output_video: True
 center_crop_4x3: True
 
 # path
-video_dir: "../samples/test/"
+video_dir: "samples/"
 output_dir: "results/"
 text_font_path: "data/simhei.ttf"
 
