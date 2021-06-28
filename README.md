@@ -1,6 +1,6 @@
 # Beetle Tracker
 
-This tracker is for bury beetle experiments, and developed by [Prof. Sheng-Feng Shen's lab](https://ecology.lifescience.ntu.edu.tw/doku.php/en/sfshen/start). 
+Tracker for bury beetle experiments, developed by [Prof. Sheng-Feng Shen's lab](https://ecology.lifescience.ntu.edu.tw/doku.php/en/sfshen/start). 
 
 ![](https://github.com/panghanwu/bury_beetle_tracker/blob/main/meterials/example.gif)
 
