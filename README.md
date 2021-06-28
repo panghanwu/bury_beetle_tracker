@@ -25,7 +25,7 @@ JSON files record tracking result for each frame. Data in each frame includes:
 - `scores`: Tracking scores in range [0, 1].
 
 ### CSV File
-The Nth line in a CSV file corresponds to the Nth frame of the corresponding video. Each line is consist of the 6 marks in format:  
+The Nth line in a CSV file corresponds to the Nth frame of the video. Each line is consist of the 6 marks in format:  
 `label_id, label, score, left, top, right, bottom`  
 
 The score and box will be empty if there is no beetle with the certain mark be detected.  
