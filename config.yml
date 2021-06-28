@@ -1,0 +1,68 @@
+# output setting
+output_jsons: True
+output_videos: True
+center_crop_4x3: True
+
+# path
+video_dir: "samples/"
+output_dir: "results/"
+text_font_path: "data/simhei.ttf"
+
+
+Tracker:
+    # parameters
+    num_classes: 6
+    weights: [.4, .6]  # iou, class, feature
+    score_threshold: 0.1
+    
+
+Detector:
+    # model
+    model_name: "BBDv1.2"
+    state_dict_path: "data/BBDv1.2.pth"
+    device: "cuda:0"  # cpu or cuda
+    batch_size: 16
+    
+    # input
+    input_size: [672, 512]  # w, h
+    grayscale: True
+    
+    # threshold
+    confidence: 0.5
+    iou: 0.3
+    
+    # classes
+    class_names:
+        - beetle
+    
+    # anchors (small -> big)
+    anchors:
+        - [37, 27]
+        - [27, 42]
+        - [58, 29]
+        - [35, 53]
+        - [29, 66]
+        - [47, 42]
+        - [67, 38]
+        - [42, 66]
+        - [55, 54]
+
+
+Classifier:
+    # model config:
+    model_name: "BBCv1"
+    input_size: [64, 64]  # length of square
+    device: "cuda:0"
+    state_dict_path: "data/BBCv1.pth"
+    threshold: 0.3
+    batch_size: 6
+    
+    # "unknow" must be at the end
+    class_names:
+        0: "H"
+        1: "O"
+        2: "X"
+        3: "nn"
+        4: "ss"
+        5: "xx"
+        6: "unknow"
