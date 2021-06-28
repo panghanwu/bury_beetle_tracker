@@ -2,18 +2,18 @@
 
 This tracker is for bury beetle experiments, and developed by [Prof. Sheng-Feng Shen's lab](https://ecology.lifescience.ntu.edu.tw/doku.php/en/sfshen/start). 
 
-==gif==
+![](https://github.com/panghanwu/bury_beetle_tracker/blob/main/meterials/example.gif)
 
 It can identify 6 marks including `H, O, X, nn, ss, xx`.
 |  0  |  1  |  2  |  3  |  4  |  5  |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |  H  |  O  |  X  | nn  | ss  | xx  |
-|![](https://hackmd.io/_uploads/ryyk9VD7d.png)|![](https://hackmd.io/_uploads/BkcRjD7GO.png)|![](https://hackmd.io/_uploads/HJeoz_Qfd.png)|![](https://hackmd.io/_uploads/HJJryrPXd.png)|![](https://hackmd.io/_uploads/BkW8yd7MO.png)|![](https://hackmd.io/_uploads/H1yugYdmd.png)|
+|![](https://github.com/panghanwu/bury_beetle_tracker/blob/main/meterials/m0.png)|![](https://github.com/panghanwu/bury_beetle_tracker/blob/main/meterials/m1.png)|![](https://github.com/panghanwu/bury_beetle_tracker/blob/main/meterials/m2.png)|![](https://github.com/panghanwu/bury_beetle_tracker/blob/main/meterials/m3.png)|![](https://github.com/panghanwu/bury_beetle_tracker/blob/main/meterials/m4.png)|![](https://github.com/panghanwu/bury_beetle_tracker/blob/main/meterials/m5.png)|
 
 
 ## Usage
-1. Download 3 files from [here](https://drive.google.com/drive/folders/1mpe4q23KAurQ6MAhasBkWh5ahTfV2IOe?usp=sharing), including `BBCv1.pth`, `BBD1.2.pth`, and `simhei.ttf`, and put them into the `data` directory.
-2. Put target `mp4` videos into `samples`, or you can set the directory path of videos through parameter `video_dir` in file `config.yml`.
+1. Download 2 files from [here](https://drive.google.com/drive/folders/1mpe4q23KAurQ6MAhasBkWh5ahTfV2IOe?usp=sharing), including `BBCv1.pth` and `BBD1.2.pth`, and put them into the `data` directory.
+2. Set the path of the target `mp4` videos through parameter `video_dir` in file `config.yml`.
 3. Run the tracking script with command `python track.py` in terminal.
 
 ## Output
